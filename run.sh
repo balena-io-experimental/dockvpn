@@ -8,6 +8,6 @@ set -e
 
 #iptables -t nat -A POSTROUTING -s 192.168.255.0/24 -o eth0 -j MASQUERADE
 
-while true ; do openvpn --writepid openvpn-server.pid --config server.conf ; done &
+while true ; do openvpn --cd /etc/openvpn --config server.conf ; done &
 
-tail -F *.log
+cd /etc/openvpn && tail -F *.log
